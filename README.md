@@ -1,5 +1,5 @@
 # Network-Information
-Network information PowerShell
+*Network information PowerShell
 -Creates Folder on Desktop name Network Dump which everything is exported there in .xlsx
 -Dump:
 -ARP Table
