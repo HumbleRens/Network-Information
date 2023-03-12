@@ -1,11 +1,9 @@
 ﻿# Set the output directory for the Excel files
 $outputDirectory = "$([Environment]::GetFolderPath('Desktop'))\Network Dump"
-
 # Create the output directory if it doesn't exist
 if (!(Test-Path -Path $outputDirectory -PathType Container)) {
     New-Item -ItemType Directory -Path $outputDirectory | Out-Null
 }
-
 # Get NetTCPConnection information 
 $netTCPConnections = Get-NetTCPConnection | Select-Object -Property State,LocalAddress,LocalPort,RemoteAddress,RemotePort
 $netTCPConnections | Export-Excel -Path "$outputDirectory\TCP Connections.xlsx" -AutoSize -BoldTopRow
@@ -13,7 +11,6 @@ $netTCPConnections | Export-Excel -Path "$outputDirectory\TCP Connections.xlsx" 
 # Get ARP table information and export to Excel
 $arpTable = Get-NetNeighbor | Where-Object { $_.State -eq 'Reachable' } | Select-Object -Property IPAddress,LinkLayerAddress
 $arpTable | Export-Excel -Path "$outputDirectory\ARP Table.xlsx" -AutoSize -BoldTopRow
-
 
 # Get DNS cache information 
 $dnsCache = Get-DnsClientCache
