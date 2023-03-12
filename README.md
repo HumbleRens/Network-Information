@@ -1,5 +1,5 @@
 # Network-Information
-*Network information PowerShell
+ Markup : - Bullet list
 -Creates Folder on Desktop name Network Dump which everything is exported there in .xlsx
 -Dump:
 -ARP Table
